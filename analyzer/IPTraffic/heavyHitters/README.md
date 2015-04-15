@@ -8,7 +8,7 @@
 - Netflow or sflow data set on Hive/Presto
 
 # Output
-- List of IP addresses sending an unusually high nunber of packets or bytes detected in the given netflow/sflow table.
+- List of IP addresses sending an unusually high nunber of packets or bytes detected in the given netflow/sflow table. The results are stored in the 'suspiciousheavyhitters' hive table.
 
 # Execution
 
