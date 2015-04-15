@@ -3,7 +3,7 @@ Abuse.ch trackers (palevo, zeus, spyeye, feodo)
 
 # Input Dataset
 
-List of C&C servers reported on abuse.ch
+List of C&C servers reported on abuse.ch (CSV format).
 
 
 # Description 

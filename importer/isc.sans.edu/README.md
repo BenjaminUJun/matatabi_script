@@ -3,7 +3,7 @@ isc_daily_sources
 
 # Input Dataset
 
-List of suspicious IPs
+List of suspicious IPs (CSV format).
 
 
 # Description 
