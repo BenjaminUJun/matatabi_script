@@ -37,6 +37,14 @@ cron-daily.sh ではそれらのlogを使って新しいユーザをフォロー
 
 1. Create import directory on hdfs
 
+1. Modify hive shcema table name  
+
+```sh
+% sed -i -r -e 's/TWITTER_SEARCH_TABLE_NAME/YOUR_TABLE_NAME/' schema/*.sql
+% sed -i -r -e 's/TWITTER_SEARCH_TABLE_NAME/YOUR_TABLE_NAME/' scripts/*.py
+% sed -i -r -e 's/TWITTER_SEARCH_TABLE_NAME/YOUR_TABLE_NAME/' scripts/*.sh
+```
+
 1. Add Hive table
   - Modify Hive table location  
   `% sed -i -r -e 's/HIVE_TABLE_PATH/YOUR_HIVE_TABLE_PATH/' HiveTable.sql`
