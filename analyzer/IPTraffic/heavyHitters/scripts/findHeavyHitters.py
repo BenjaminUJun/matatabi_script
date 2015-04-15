@@ -13,7 +13,7 @@ from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
-outputDirectory = "../data/"
+outputDirectory = "data/"
 
 def confidence(pkt,avgpkt,stdpkt,byt,avgbyt,stdbyt):
   """
@@ -28,6 +28,13 @@ def confidence(pkt,avgpkt,stdpkt,byt,avgbyt,stdbyt):
     return "LOW"
   else:
     return ""
+ 
+def scrub(table_name):
+    """
+    Avoid injection with the table name
+    """
+    return ''.join( chr for chr in table_name if chr.isalnum() ) 
+
 
 
 def findHeavyHitters(table,today=datetime.date.today(),verbose=False):
@@ -38,7 +45,7 @@ def findHeavyHitters(table,today=datetime.date.today(),verbose=False):
   histNbDay = 15 
   date  = "%d%02d%02d" % (today.year, today.month, today.day)
   dates = list("%d%02d%02d" % (x.year, x.month, x.day) for x in pd.date_range(today-datetime.timedelta(histNbDay),today-datetime.timedelta(1)))
-
+  table = scrub(table)
 
   ## set some variables regarding the input data
   if table.startswith("netflow"):
@@ -119,13 +126,6 @@ def findHeavyHitters(table,today=datetime.date.today(),verbose=False):
 
   except Thrift.TException, tx:
       sys.stderr.write('%s\n' % (tx.message))
-
- 
-def scrub(table_name):
-    """
-    Avoid injection with the table name
-    """
-    return ''.join( chr for chr in table_name if chr.isalnum() ) 
 
 
 if __name__ == "__main__":
