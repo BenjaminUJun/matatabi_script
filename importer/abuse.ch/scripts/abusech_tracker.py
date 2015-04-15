@@ -17,7 +17,7 @@ from thrift.protocol import TBinaryProtocol
 # Initialisation of trackers name, URL and directories where data will be downloaded (make sure these directories exist)
 allTrackerName = ["palevo","zeus","spyeye","feodo"]
 allIpList = ["https://palevotracker.abuse.ch/blocklists.php?download=ipblocklist","https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist","https://spyeyetracker.abuse.ch/blocklist.php?download=ipblocklist","https://feodotracker.abuse.ch/blocklist/?download=ipblocklist"]
-allDownloadDirectory = ["abusech/palevo/","abusech/zeus/","abusech/spyeye/","abusech/feodo/"]
+allDownloadDirectory = ["../data/palevo/","../data/zeus/","../data/spyeye/","../data/feodo/"]
 
 
 def downloadIPList(ipList,downloadDirectory):
