@@ -4,6 +4,8 @@
 # Module File Name
 - findSuspiciousDnsFailures.py
 
+- Required libraries: pyhive, networkx, python-louvain 
+
 # Input Dataset
 - DNS dataset on Hive/Presto
 
