@@ -1,0 +1,3 @@
+[submodule "NECOMAtter"]
+	path = NECOMAtter
+	url = https://github.com/necoma/NECOMAtter.git
