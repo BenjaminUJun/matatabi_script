@@ -30,7 +30,7 @@ do
 	if python ./TwitterSearchLogger.py $search_string > $log_file 2> $error_log_file; then
 		gzip -9 $log_file
 		copy_to_hdfs $log_file".gz" $hdfs_save_dir $new_file_name".gz"
-		hive -e "ALTER TABLE twitter_search_log ADD IF NOT EXISTS PARTITION(dt='${today}', search='${escaped_search_string}')" > /dev/null
+		hive -e "ALTER TABLE TWITTER_SEARCH_TABLE_NAME ADD IF NOT EXISTS PARTITION(dt='${today}', search='${escaped_search_string}')" > /dev/null
 	else
 		echo script error on twitter search "'"$sarch_string"'". details are:
 		cat $error_log_file
