@@ -52,7 +52,7 @@ gzip -9 $new_log_file
 hdfs_save_dir="$hdfs_save_dir_base/dt=$today"
 hdfs_file_name="$nowTime.oneline.json"
 copy_to_hdfs $new_log_file".gz" $hdfs_save_dir $hdfs_file_name".gz"
-hive -e "ALTER TABLE twitter_streaming_log ADD IF NOT EXISTS PARTITION(dt='${today}')" > /dev/null
+hive -e "ALTER TABLE TWITTER_STREAMING_TABLE_NAME ADD IF NOT EXISTS PARTITION(dt='${today}')" > /dev/null
 
 backup_dir_month="$backup_dir$thismonth"
 mkdir -p $backup_dir_month
