@@ -22,8 +22,13 @@ cron(8) 等で定期的に実行される事を期待しています。
   - Modify virtualenv settings for shell scripts  
   `% sed -i -r -e 's/VIRTUALENV_NAME/YOUR_ENV_NAME/' *.sh`
 
-1. Next, run setup.py  
+1. Modify backup directory settings  
+`% sed -i -r -e `s/DATA_BACKUP_DIR/YOUR_BACKUP_DIRECTORY/' *.sh`
+
+1. install python librarys
 `% python setup.py`
+
+1. Install [jq](http://stedolan.github.io/jq/)
 
 1. Create import directory on hdfs
 
@@ -35,6 +40,9 @@ cron(8) 等で定期的に実行される事を期待しています。
 
 1. Modify hdfs import directory settings  
 `% sed -i -r -e 's/HDFS_IMPORT_DIR/YOUR_HDFS_IMPORT_DIR/' cron.sh
+
+1. Modify Twitter search setting  
+`% sed -i -r -e 's/#security #incident #ddos #vulnerability/YOUR SEARCH TARGETS/' cron.sh`
 
 1. Create Twitter account for search.
   - Add your application and create consumer key and secret key on Twitter.
