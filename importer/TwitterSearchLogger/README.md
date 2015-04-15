@@ -60,6 +60,17 @@ sed -i -r -e 's/TWITTER_ACCESS_KEY/YOUR_ACCESS_KEY/' *.py
 sed -i -r -e 's/TWITTER_ACCESS_SECRET/YOUR_ACCESS_SECRET/' *.py
 ```
 
+1. If you need mew to (NECOMATter)[]
+  - Create NECOMATter account for TwitterSearch bot.
+  - Create NECOMATter API key.
+  - modify mew settings.
+```sh
+sed -i -r -e 's/NECOMATTER_URI/NECOMATTER_URI/' cron-daily.sh
+sed -i -r -e 's/NECOMATTER_USER_NAME/NECOMATTER_USER_NAME/' cron-daily.sh
+sed -i -r -e 's/NECOMATTER_API_KEY/NECOMATTER_API_KEY/' cron-daily.sh
+```
+
+
 ## assign cron(8)
 
 use cron(8) like this:
