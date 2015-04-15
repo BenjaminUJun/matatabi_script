@@ -68,6 +68,7 @@ sed -i -r -e 's/TWITTER_ACCESS_SECRET/YOUR_ACCESS_SECRET/' *.py
 sed -i -r -e 's/NECOMATTER_URI/NECOMATTER_URI/' cron-daily.sh
 sed -i -r -e 's/NECOMATTER_USER_NAME/NECOMATTER_USER_NAME/' cron-daily.sh
 sed -i -r -e 's/NECOMATTER_API_KEY/NECOMATTER_API_KEY/' cron-daily.sh
+sed -i -r -e 's/^#MEW //' cron-daily.sh
 ```
 
 
