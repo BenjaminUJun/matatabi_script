@@ -13,6 +13,11 @@ one line JSON list.
 
 Twitter で任意の文字列を検索をした結果を一行毎のJSON形式で hdfs に入れます。
 cron(8) 等で定期的に実行される事を期待しています。
+cron では、15分程度おきに実行される cron.sh と、一日に一回実行される cron-daily.sh が用意されています。
+cron.sh では指定された文字列(ハッシュタグ等)で検索を行い、その結果を log に取りつつ hive に入れます。
+cron-daily.sh ではそれらのlogを使って新しいユーザをフォローしたり、
+その日に見かけた一番多いURLのTOP10やTOP3をtwitter等に書き込みます。
+また、その日の分の log はバックアップ用のディレクトリへ移動します。
 
 # usage 
 ## first set up
