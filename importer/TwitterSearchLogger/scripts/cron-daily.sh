@@ -23,7 +23,7 @@ function dump_tweet_day() {
 best_10=`dump_tweet_day | ./UriCount.py | head -10`
 
 # mew to NECOMAtter
-#(echo "top 10 URL in twitter search result:  "; echo '  '; echo "$best_10") | $NECOMAtter_tweet NECOMATTER_URI 'NECOMATTER_USER_NAME' NECOMATTER_API_KEY > /dev/null
+#MEW (echo "top 10 URL in twitter search result:  "; echo '  '; echo "$best_10") | $NECOMAtter_tweet NECOMATTER_URI 'NECOMATTER_USER_NAME' NECOMATTER_API_KEY > /dev/null
 
 # tweet to Twitter
 (echo "top 3 URL today:"; echo ''; echo "$best_10" | head -3 | sed -e 's/ *$//') | ./Tweet.py

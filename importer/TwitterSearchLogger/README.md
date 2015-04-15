@@ -44,7 +44,7 @@ cron-daily.sh ではそれらのlogを使って新しいユーザをフォロー
   `% hive -f HiveTable.sql`
 
 1. Modify hdfs import directory settings  
-`% sed -i -r -e 's/HDFS_IMPORT_DIR/YOUR_HDFS_IMPORT_DIR/' cron.sh
+`% sed -i -r -e 's/HIVE_TABLE_PATH/YOUR_HIVE_TABLE_PATH/' cron.sh
 
 1. Modify Twitter search setting  
 `% sed -i -r -e 's/#security #incident #ddos #vulnerability/YOUR SEARCH TARGETS/' cron.sh`
@@ -68,6 +68,7 @@ sed -i -r -e 's/TWITTER_ACCESS_SECRET/YOUR_ACCESS_SECRET/' *.py
 sed -i -r -e 's/NECOMATTER_URI/NECOMATTER_URI/' cron-daily.sh
 sed -i -r -e 's/NECOMATTER_USER_NAME/NECOMATTER_USER_NAME/' cron-daily.sh
 sed -i -r -e 's/NECOMATTER_API_KEY/NECOMATTER_API_KEY/' cron-daily.sh
+sed -i -r -e 's/^#MEW //' cron-daily.sh
 ```
 
 
@@ -76,8 +77,8 @@ sed -i -r -e 's/NECOMATTER_API_KEY/NECOMATTER_API_KEY/' cron-daily.sh
 use cron(8) like this:
 
 ```
-*/15 * * * * some_directory.../TwitterSearchLogger/cron.sh
-50 23 * * * some_directory.../TwitterSearchLogger/cron-daily.sh
+*/15 * * * * some_directory.../TwitterSearchLogger/scripts/cron.sh
+50 23 * * * some_directory.../TwitterSearchLogger/scripts/cron-daily.sh
 ```
 
 

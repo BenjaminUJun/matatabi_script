@@ -2,7 +2,7 @@
 
 search_targets="#security #incident #ddos #vulnerability"
 log_dir="logs"; mkdir -p $log_dir
-hdfs_save_dir_base="HDFS_IMPORT_DIR_BASE"
+hdfs_save_dir_base="HIVE_TABLE_PATH"
 
 cd `dirname $0`
 source $HOME/.bashrc # for hadoop settings
