@@ -9,8 +9,8 @@ MY_HIVE_TABLE_PATH=/malc0de
 
 cd $DIST_DIR
 
-#apt-get install pip
-#pip install requests
+apt-get install python-pip
+pip install requests
 
 # modify settings
 sed -i -r -e "s/MALC0DE_TABLE_NAME/$MY_TABLE_NAME/" schema/*.sql
