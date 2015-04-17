@@ -9,7 +9,7 @@ puts "====#{netflowTable}===="
 while date_offset > 1 do 
 	date =  `date -d "#{date_offset} days ago" '+%Y%m%d'`.to_s.chop
 
-    tmp1 =  `#{prestoExecutionCommand} "select count(*) from netflow_wide where dt='#{date}' and flg='....S.' and pr='TCP' and dp=443;"`
+    tmp1 =  `#{prestoExecutionCommand} "select count(*) from #{netflowTable} where dt='#{date}' and flg='....S.' and pr='TCP' and dp=443;"`
     number_of_tcp_443_syn = tmp1.split(/\"/)[1].to_i
 
     puts "#{date} #{number_of_tcp_443_syn}"
