@@ -26,12 +26,12 @@ cron.sh では
 1. You must setup TwitterSearchLogger module before TwitterStreamingWatcher
 
 1. use virtualenv.  
-`% vertualenv YOUR_ENV_NAME`
+`% virtualenv YOUR_ENV_NAME`
   - Modify virtualenv settings for shell scripts  
   `% sed -i -r -e 's/VIRTUALENV_NAME/YOUR_ENV_NAME/' *.sh`
 
 1. Modify backup directory settings  
-`% sed -i -r -e `s/DATA_BACKUP_DIR/YOUR_BACKUP_DIRECTORY/' *.sh`
+`% sed -i -r -e 's|DATA_BACKUP_DIR|YOUR_BACKUP_DIRECTORY|' *.sh`
 
 1. install python librarys
 `% python setup.py`
@@ -48,12 +48,12 @@ cron.sh では
 
 1. Add Hive table
   - Modify Hive table location  
-  `% sed -i -r -e 's/HIVE_TABLE_PATH/YOUR_HIVE_TABLE_PATH/' HiveTable.sql`
+  `% sed -i -r -e 's|HIVE_TABLE_PATH|YOUR_HIVE_TABLE_PATH|' HiveTable.sql`
   - Create Hive table  
   `% hive -f HiveTable.sql`
 
 1. Modify hdfs import directory settings  
-`% sed -i -r -e 's/HIVE_TABLE_PATH/YOUR_HIVE_TABLE_PATH/' cron.sh
+`% sed -i -r -e 's|HIVE_TABLE_PATH|YOUR_HIVE_TABLE_PATH|' cron.sh
 
 1. Create Twitter account for search.
   - Add your application and create consumer key and secret key on Twitter.
