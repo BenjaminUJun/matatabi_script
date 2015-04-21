@@ -14,7 +14,7 @@ apt-get install python-virtualenv
 apt-get install jq
 
 (cd scripts; virtualenv $MY_ENV_NAME)
-source scripts/virtualenv/bin/activate
+source scripts/$MY_ENV_NAME/bin/activate
 sed -i -r -e "s/VIRTUALENV_NAME/$MY_ENV_NAME/" scripts/[a-z]*.sh
 
 # Modify backup directory settings  
@@ -22,6 +22,8 @@ sed -i -r -e "s|DATA_BACKUP_DIR|$MY_BACKUP_DIRECTORY|" scripts/[a-z]*.sh
 
 # install python librarys
 python scripts/setup.py install
+# why this need? (setup.py install failed requests)
+pip install requests
 
 # Create import directory on hdfs
 hdfs dfs -mkdir -p $MY_HIVE_TABLE_PATH
@@ -52,10 +54,10 @@ NECOMATTER_TOOLS_DIR=$NECOMATTER_DIR/tools
 NECOMATTER_USER_NAME="twitterSearchBOT"
 $NECOMATTER_TOOLS_DIR/user_add.py $NECOMATTER_USER_NAME 'abcde'
 NECOMATTER_API_KEY=`$NECOMATTER_TOOLS_DIR/create_or_get_api_key.py $NECOMATTER_USER_NAME`
-NECOMATTER_URI=http://localhost:8000
+NECOMATTER_HOST=localhost:8000
 
 # apply NECOMAtter account settings
-sed -i -r -e "s|NECOMATTER_URI|$NECOMATTER_URI|" scripts/cron-daily.sh
+sed -i -r -e "s|NECOMATTER_HOST|$NECOMATTER_HOST|" scripts/cron-daily.sh
 sed -i -r -e "s|NECOMATTER_USER_NAME|$NECOMATTER_USER_NAME|" scripts/cron-daily.sh
 sed -i -r -e "s|NECOMATTER_API_KEY|$NECOMATTER_API_KEY|" scripts/cron-daily.sh
 sed -i -r -e "s|^#MEW ||" scripts/cron-daily.sh
