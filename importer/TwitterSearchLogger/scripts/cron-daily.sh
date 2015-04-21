@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NECOMAtter_tweet="../../NECOMATter/tools/tweet_with_api_key.py"
-backup_dir="DATA_BACKUP_DIR"
+NECOMAtter_tweet="../../../NECOMAtter/tools/tweet_with_api_key.py"
+backup_dir="DATA_BACKUP_DIR/"
 
 cd `dirname $0`
 source $HOME/.bashrc

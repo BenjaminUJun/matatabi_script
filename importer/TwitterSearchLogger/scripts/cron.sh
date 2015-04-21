@@ -32,7 +32,7 @@ do
 		copy_to_hdfs $log_file".gz" $hdfs_save_dir $new_file_name".gz"
 		hive -e "ALTER TABLE TWITTER_SEARCH_TABLE_NAME ADD IF NOT EXISTS PARTITION(dt='${today}', search='${escaped_search_string}')" > /dev/null
 	else
-		echo script error on twitter search "'"$sarch_string"'". details are:
+		echo script error on twitter search "'"$search_string"'". details are:
 		cat $error_log_file
 	fi
 	#rm -f $log_file $error_log_file
