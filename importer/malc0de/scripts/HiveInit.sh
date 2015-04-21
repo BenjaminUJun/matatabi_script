@@ -29,6 +29,3 @@ hive -f schema/HiveTable.sql
 # apply hive table path to scripts
 sed -i -r -e "s|HIVE_TABLE_PATH|$MY_HIVE_TABLE_PATH|" scripts/cron.sh
 sed -i -r -e "s|HIVE_TABLE_PATH|$MY_HIVE_TABLE_PATH|" scripts/*.py
-
-# fetch and create initial data
-scripts/cron.sh
