@@ -12,15 +12,22 @@ MY_TABLE_NAME=twitter_streaming
 apt-get install python-virtualenv
 
 # initialize virtualenv
-vertualenv $YOUR_ENV_NAME
+(cd scripts; virtualenv $MY_ENV_NAME)
+source scripts/$MY_ENV_NAME/bin/activate
 
-sed -i -r -e "s/VIRTUALENV_NAME/$MY_ENV_NAME/" *.sh
+sed -i -r -e "s/VIRTUALENV_NAME/$MY_ENV_NAME/" scripts/[a-z]*.sh
 
 # Modify backup directory settings  
-sed -i -r -e "s|DATA_BACKUP_DIR|$MY_BACKUP_DIRECTORY|" *.sh
+sed -i -r -e "s|DATA_BACKUP_DIR|$MY_BACKUP_DIRECTORY|" scripts/[a-z]*.sh
 
 # install python librarys
 python scripts/setup.py install
+
+# Create dummy pid file
+echo 009 > scripts/stream_bot.pid
+
+# Create log directory
+mkdir scripts/logs
 
 # Create import directory on hdfs
 hdfs dfs -mkdir -p $MY_HIVE_TABLE_PATH
@@ -29,7 +36,7 @@ hdfs dfs -mkdir -p $MY_HIVE_TABLE_PATH
 
 sed -i -r -e "s/TWITTER_STREAMING_TABLE_NAME/$MY_TABLE_NAME/" schema/*.sql
 sed -i -r -e "s/TWITTER_STREAMING_TABLE_NAME/$MY_TABLE_NAME/" scripts/*.py
-sed -i -r -e "s/TWITTER_STREAMING_TABLE_NAME/$MY_TABLE_NAME/" scripts/*.sh
+sed -i -r -e "s/TWITTER_STREAMING_TABLE_NAME/$MY_TABLE_NAME/" scripts/[a-z]*.sh
 
 # Add Hive table
 #  Modify Hive table location  
