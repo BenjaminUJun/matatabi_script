@@ -13,13 +13,13 @@
 - one shot (impport netflow files which gathered at the 1st argument date < YYYYMMDD >) 
 
 ```shell: 
-# sh put-netflow.sh <YYYYMMDD> <NETFLOW TABLE NAME>
+# sh put-netflow.sh <YYYYMMDD>
 ```
 
 - cron
 
 ```
-* 11 * * * ~/put-sflow.sh `date --date '1 days ago' "+\%Y\%m\%d"` <NETFLOW TABLE NAME>
+* 11 * * * ~/put-sflow.sh `date --date '1 days ago' "+\%Y\%m\%d"`
 ```
 
 

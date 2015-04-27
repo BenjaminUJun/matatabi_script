@@ -6,17 +6,16 @@
 # remove temporally file
 rm -f ./tmp/$1.csv
 
-
-for dataFile in `ls <NETFLOW DATA DIRECTORPY PATH>/nfcapd.$1*`
+for dataFile in `ls NETFLOW_DATA_DIRECTORPY/nfcapd.$1*`
 do 
 # convert nfcapd file into csv format
-/home/hadoop/bin/nfdump-necoma -r $dataFile -o csv |tail -n +4 >> ./tmp/$1.csv
+NFDUMP_PATH -r $dataFile -o csv |tail -n +4 >> ./tmp/$1.csv
 done
 
 # compress csv file 
 lzop -f -U ./tmp/$1.csv
 # import compressed file on the hive table
-hive -S -e "load data local inpath './tmp/$1.csv.lzo' overwrite into table $2 partition(dt='$1');"
+hive -S -e "load data local inpath './tmp/$1.csv.lzo' overwrite into table NETFLOW_TABLE_NAME partition(dt='$1');"
 rm -f ./tmp/$1.csv
 
 # convert text data on the hive table into rcfile format

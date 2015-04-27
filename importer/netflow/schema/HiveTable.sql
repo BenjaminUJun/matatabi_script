@@ -1,4 +1,4 @@
-create table <NETFLOW TABLE NAME> (
+create table NETFLOW_TABLE_NAME (
     ts int,
     te int,
     td double,
