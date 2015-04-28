@@ -1,4 +1,4 @@
-create table <SFLOW TABLE NAME> (
+create table SFLOW_TABLE_NAME (
 datagramSourceIP STRING,
 datagramSize INT,
 unixSecondsUTC INT,
