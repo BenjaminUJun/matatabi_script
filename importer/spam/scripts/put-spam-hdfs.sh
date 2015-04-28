@@ -2,9 +2,8 @@
 
 # Description: put spam into hdfs
 
-spam_directroy=$1
-date=$2
+date=$1
 
-/usr/bin/python <PATH>/spam-parse.py $spam_directory $date
-/usr/local/hive-0.11.0/bin/hive -S -e "LOAD DATA LOCAL INPATH '<PATH>/spam-analyze/${spam_directory}/${date}.output' OVERWRITE INTO TABLE <SPAM TABLE NAME> partition (dt='${date}', sv='${spam_directory}');" > /dev/null
+/usr/bin/python spam-parse.py SPAM_DATA_DIRECTORY $date
+/usr/local/hive-0.11.0/bin/hive -S -e "LOAD DATA LOCAL INPATH 'SPAM_DATA_ANALYSIS_DIRECTORY/${date}.output' OVERWRITE INTO TABLE SPAM_TABLE_NAME> partition (dt='${date}', sv='SERVER_NAME');" > /dev/null
 
