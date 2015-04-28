@@ -9,10 +9,10 @@ NETFLOW_DATA_DIRECTORPY=/data/netflow/
 cd $DIST_DIR
 
 # modify settings
-sed -i -r -e "s/NETFLOW_TABLE_NAME/$MY_TABLE_NAME/" schema/*.sql
-sed -i -r -e "s/NETFLOW_TABLE_NAME/$MY_TABLE_NAME/" scripts/*.sh
-
-sed -i -r -e "s/NETFLOW_PATH/$NETFLOW_PATH/" scripts/*.sh
+sed -i -r -e "s@NETFLOW_TABLE_NAME@$MY_TABLE_NAME@" schema/*.sql
+sed -i -r -e "s@NETFLOW_TABLE_NAME@$MY_TABLE_NAME@" scripts/put-netflow.sh
+sed -i -r -e "s@NETFLOW_DATA_DIRECTORY@$NFDUMP_PATH@" scripts/put-netflow.sh
+sed -i -r -e "s@NFDUMP_PATH@$NFDUMP_PATH@" scripts/put-netflow.sh
 
 # create hive schema
 hive -f schema/HiveTable.sql
