@@ -2,9 +2,7 @@
 
 DIST_DIR=`dirname $0`/../
 
-NFDUMP_PATH=/usr/sbin/nfdump
 MY_TABLE_NAME=sflow
-NETFLOW_DATA_DIRECTORPY=/data/netflow/
 
 cd $DIST_DIR
 
