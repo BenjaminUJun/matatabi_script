@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
 DIST_DIR=`dirname $0`/../
 
-NFDUMP_PATH=/usr/sbin/nfdump
+NFDUMP_PATH=/usr/bin/nfdump
 MY_TABLE_NAME=netflow
-NETFLOW_DATA_DIRECTORY=$(DIST_DIR)/../data/
+NETFLOW_DATA_DIRECTORY=$(DIST_DIR)/data/
 
 cd $DIST_DIR
 
