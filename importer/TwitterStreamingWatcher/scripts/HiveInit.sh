@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 MY_ENV_NAME=virtualenv
 BASE_DIR=`dirname $0`/../
