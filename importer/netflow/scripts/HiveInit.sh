@@ -4,7 +4,7 @@ DIST_DIR=`dirname $0`/../
 
 NFDUMP_PATH=/usr/sbin/nfdump
 MY_TABLE_NAME=netflow
-NETFLOW_DATA_DIRECTORPY=/data/netflow/
+NETFLOW_DATA_DIRECTORPY=/tmp/data/netflow/
 
 cd $DIST_DIR
 

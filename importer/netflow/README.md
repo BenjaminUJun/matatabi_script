@@ -7,7 +7,7 @@
 
 # Description 
 - The script imports daily netflow data which is gathered by nfcapd on a MATATABI table. The script use nfdump tool in the data conversion. The table definition is available on "schema" directory.
-
+- example data stored in data directory was anonymised.
 
 # Usage
 - one shot (impport netflow files which gathered at the 1st argument date < YYYYMMDD >) 
