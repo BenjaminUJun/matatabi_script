@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 DIST_DIR=`dirname $0`/../
 
