@@ -31,7 +31,6 @@ if test -s $tmp_file; then
 	./gzJSON2LineJSON.py log/*.gz | ./LineJSON2DateLineJson.py > put.sh
 	source put.sh > log/"$nowTime"_put.log 2>&1
 	mv log/* $backup_dir/
-	rm $gzip_file
 else
 	rm $tmp_file
 fi
