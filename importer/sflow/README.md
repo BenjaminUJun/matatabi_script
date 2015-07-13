@@ -12,7 +12,7 @@
 - one shot
 
 ```shell:
-# ruby put-sflows <SFLOW FILE NAME (.tar.gz)> <YYYYMMDD> <SFLOW TABLE NAME>
+# ruby put-sflows sflow_data_20150101.txt.gz 20150101 <SFLOW TABLE NAME>
 ```
 
 - cron
