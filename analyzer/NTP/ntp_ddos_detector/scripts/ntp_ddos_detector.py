@@ -9,7 +9,7 @@ def find_amplifiers():
     
     # Find NTP amplifiers and keep ip in Hive Table
     req = "create table ntp_amplifiers as "
-    req += "select sa, dt from netflow where sp=123 and pr='UDP' and ibyt/ipkt=468 group by sa"
+    req += "select sa from netflow where sp=123 and pr='UDP' and ibyt/ipkt=468 group by sa"
 
     cursor = presto.connect('localhost').cursor()
     cursor.execute(req)
@@ -60,7 +60,7 @@ if __name__ == "__main__":
         quit()
 
     if sys.argv[1] == "amp":
-        find_amplifiers(date)
+        find_amplifiers()
 
     if sys.argv[1] == "vic":
-        find_victims(date)
+        find_victims()
