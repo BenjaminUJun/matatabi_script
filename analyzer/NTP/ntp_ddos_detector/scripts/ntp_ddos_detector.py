@@ -13,6 +13,7 @@ def find_amplifiers():
 
     cursor = presto.connect('localhost').cursor()
     cursor.execute(req)
+    res = cursor.fetchall()
 
 
 # Find DDoS victims from netflow data
@@ -26,7 +27,7 @@ def find_victims():
 
     for i in range(3):
         print res[i]
-        plot_traffic_volume(res[i])
+        plot_traffic_volume(res[i][0])
 
 # Plot the traffic volume for the given IP
 def plot_traffic_volume(ip):
